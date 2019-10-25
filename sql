@@ -1,0 +1,1 @@
+select * from CONST_DATA

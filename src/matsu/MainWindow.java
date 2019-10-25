@@ -23,7 +23,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
+//import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -1649,6 +1649,7 @@ public class MainWindow extends JFrame{
 			lblDivision_1.setVisible(checkBox_1.isSelected());
 		}
 	}
+	/*
 	private void telfaxCheck(){
 		if(lbl_title.getText().replace("　","").equals("納品書")){
 			//lblDivision_2.setVisible(checkBox_3.isSelected());
@@ -1656,6 +1657,7 @@ public class MainWindow extends JFrame{
 			//lblDivision_1.setVisible(checkBox_3.isSelected());
 		}
 	}
+	*/
 //------------------------クラス---------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------//
 	//                                          クラス                                                                             //
