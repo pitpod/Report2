@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Oct 07 15:16:55 JST 2015:
+DerbyバージョンThe Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): インスタンスa816c00e-0150-40f2-08f2-00000423bcb8を
+file:/C:/Program%20Files/Java/db-derby-10.11.1.1-bin/lib/derby.jarからロードされたクラス・ローダーsun.misc.Launcher$AppClassLoader@73d16e93により
+データベース・ディレクトリC:\Users\CM_matsu\workspace\Report2\dbdir上でブートしています
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_05-b13
+user.dir=C:\Users\CM_matsu\workspace\Report2
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+データベース・クラス・ローダーが開始されました - derby.database.classpath=''
