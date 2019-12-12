@@ -460,7 +460,8 @@ public class PrintSample extends JFrame {
     	   row1 = 255 + rowHeight1*LineNo1;
     	   g2.drawLine(9, row1, 481, row1);
     	}
-    	for (int LineNo2 = 0,row2 = 0,rowHeight2 = 17;LineNo2 <= 27;LineNo2++){
+    	int endNo = printData2.length - 1;
+    	for (int LineNo2 = 0,row2 = 0,rowHeight2 = 17;LineNo2 <= endNo;LineNo2++){
     	   row2 = 255 + 19 + rowHeight2*LineNo2;
 			ListDataText(g2,LineNo2,row2,rowHeight2);
     	}
@@ -655,8 +656,9 @@ public class PrintSample extends JFrame {
     }
     public int page(Object[][] data){
 			dataCount = printData2.length;
-			if(dataCount <= 20){
+			if(dataCount <= 21){
 				pageCount = 1;
+				//System.out.println(pageCount);
 			}else if(dataCount <= 28){
 				pageCount = 2;
 			}else if(dataCount >28){

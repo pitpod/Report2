@@ -55,6 +55,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.AbstractAction;
+//import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
@@ -1343,6 +1344,10 @@ public class MainWindow extends JFrame{
 	}
 	private void linedel(){
 		int delRowTable = table.getSelectedRow();
+		//if (delRowTable == table.getRowCount()) {
+			//delRowTable = delRowTable - 1;
+		//}
+		//System.out.println(table.getRowCount());
 		if(table.isEditing()){
 			table.getCellEditor().stopCellEditing();
 		}
@@ -2113,9 +2118,14 @@ public class MainWindow extends JFrame{
 					BufferedReader  filereader = new BufferedReader(readFileUtf);
 					while((line = filereader.readLine()) != null){
 						lineNo++;
+						if(lineNo == 13) {
+							System.out.println(line);
+						}
 						if(lineNo <= 16){
+						//if(lineNo <= 12){
 							sql_1 += "," + "(\'" + line + "\')";
 						}else if(lineNo >= 18){
+						//}else if(lineNo >= 15){
 							sql_2 += ",(" + "\'" + line.replaceAll("\t", "\',\'") + "\')";
 						}
 					}
