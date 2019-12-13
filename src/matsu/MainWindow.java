@@ -2116,9 +2116,13 @@ public class MainWindow extends JFrame{
 						readFileUtf = new InputStreamReader(readFile,"SHIFT_JIS");
 					}
 					BufferedReader  filereader = new BufferedReader(readFileUtf);
+					//String lineCd = System.getProperty("line.separator");
+					//String lineCd = "\r\n";
 					while((line = filereader.readLine()) != null){
 						lineNo++;
-						if(lineNo == 13) {
+						System.out.println(line);
+						System.out.println(lineNo);
+						if((lineNo == 13) && (line == "")) {
 							System.out.println(line);
 						}
 						if(lineNo <= 16){
@@ -2138,8 +2142,8 @@ public class MainWindow extends JFrame{
 				String table_2 = "CONST_DATA";
 				String column_2 = "KEY1";
 				DbConnect dbconnect = new DbConnect();
-				dbconnect.dBInsert(sql_1,table_1,column_1);
-				dbconnect.dBInsert(sql_2,table_2,column_2);
+				//dbconnect.dBInsert(sql_1,table_1,column_1);
+				//dbconnect.dBInsert(sql_2,table_2,column_2);
 				try {
 					dbconnect.disconnect();
 				}catch (SQLException e) {
