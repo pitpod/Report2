@@ -461,6 +461,9 @@ public class PrintSample extends JFrame {
     	   g2.drawLine(9, row1, 481, row1);
     	}
     	int endNo = printData2.length - 1;
+    	if (endNo > 27) {
+    		endNo = 27;
+    	}
     	for (int LineNo2 = 0,row2 = 0,rowHeight2 = 17;LineNo2 <= endNo;LineNo2++){
     	   row2 = 255 + 19 + rowHeight2*LineNo2;
 			ListDataText(g2,LineNo2,row2,rowHeight2);

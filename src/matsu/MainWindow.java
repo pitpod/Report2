@@ -111,7 +111,7 @@ public class MainWindow extends JFrame{
 	private DefaultComboBoxModel<String> model_F_1;
 	private JComboBox<String> comboBox_Honorific_1;
 	private DefaultComboBoxModel<String> model_H_1;
-	private JComboBox<String> comboBox_C_2;
+	public JComboBox<String> comboBox_C_2;
 	private DefaultComboBoxModel<String> model_C_2;
 	private JComboBox<String> comboBox_F_2;
 	private DefaultComboBoxModel<String> model_F_2;
@@ -1599,7 +1599,7 @@ public class MainWindow extends JFrame{
 			}
 		}
 	}
-	private void comboBoxList(){
+	public void comboBoxList(){
 		DbConnect dbconnect = new DbConnect();
 		ArrayList<String> F_List = dbconnect.combobox("F_DATA", "F_NAME");
 		F_List.add(0, "");
@@ -1612,6 +1612,12 @@ public class MainWindow extends JFrame{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	public void comboBoxListCh() {
+		comboBoxList();
+		System.out.println(C_Array[0].toString());
+		DefaultComboBoxModel<String> model_C_new = new DefaultComboBoxModel<String>(C_Array);
+		//comboBox_C_2.setModel(model_C_new);
 	}
 	private boolean checkBeforeReadfile(File file){
 		if (file.exists()){
@@ -1825,7 +1831,7 @@ public class MainWindow extends JFrame{
 			cal.set(Calendar.ERA, 4);
 			String regex = "^.+?(\\d\\d+?).+?(\\d\\d?).+?(\\d\\d?)";
 			rep = Pattern.compile(regex);
-			Date jDate1;
+			Date jDate1 = null;
 			try {
 				jDate1 = japaneseFormat.parse(file_date_1.getText());
 				match1 = rep.matcher(sdf1.format(jDate1));
@@ -1836,7 +1842,8 @@ public class MainWindow extends JFrame{
 			//match1 = rep.matcher(file_date_1.getText());
 			if(match1.find()){
 				cal.set(Integer.parseInt(match1.group(1)),Integer.parseInt(match1.group(2)) -1,Integer.parseInt(match1.group(3)));
-				wDate1 = sdf2.format(cal.getTime());
+				//wDate1 = sdf2.format(cal.getTime());
+				wDate1 = sdf2.format(jDate1);
 			}
 			Date jDate2 = null;
 			try {
@@ -1853,7 +1860,7 @@ public class MainWindow extends JFrame{
 				//wDate2 = sdf2.format(cal.getTime());
 				wDate2 = sdf2.format(jDate2);
 			}
-			Date jDate3;
+			Date jDate3 = null;
 			try {
 				jDate3 = japaneseFormat.parse(file_date_3.getText());
 				match3 = rep.matcher(sdf1.format(jDate3));
@@ -1864,7 +1871,8 @@ public class MainWindow extends JFrame{
 			//Matcher match3 = rep.matcher(file_date_3.getText());
 			if(match3.find()){
 				cal.set(Integer.parseInt(match3.group(1)),Integer.parseInt(match3.group(2)) -1,Integer.parseInt(match3.group(3)));
-				wDate3 = sdf2.format(cal.getTime());
+				//wDate3 = sdf2.format(cal.getTime());
+				wDate3 = sdf2.format(jDate3);
 			}
 		}
 
@@ -2118,17 +2126,24 @@ public class MainWindow extends JFrame{
 					BufferedReader  filereader = new BufferedReader(readFileUtf);
 					//String lineCd = System.getProperty("line.separator");
 					//String lineCd = "\r\n";
+					int lineEnd1 = 16;
+					int lineEnd2 = 18;
 					while((line = filereader.readLine()) != null){
 						lineNo++;
-						System.out.println(line);
-						System.out.println(lineNo);
-						if((lineNo == 13) && (line == "")) {
-							System.out.println(line);
+						//if((lineNo == 13) && ((line.equals("true") || line.equals("false")))) {
+						if((lineNo == 13) && line.equals("")) {
+							//lineEnd1 = 16;
+							//lineEnd2 = 18;
+						//}else {
+							lineEnd1 = 12;
+							lineEnd2 = 15;
 						}
-						if(lineNo <= 16){
+						System.out.println(lineEnd1);
+						System.out.println(lineEnd2);
+						if(lineNo <= lineEnd1){
 						//if(lineNo <= 12){
 							sql_1 += "," + "(\'" + line + "\')";
-						}else if(lineNo >= 18){
+						}else if(lineNo >= lineEnd2){
 						//}else if(lineNo >= 15){
 							sql_2 += ",(" + "\'" + line.replaceAll("\t", "\',\'") + "\')";
 						}
@@ -2142,8 +2157,8 @@ public class MainWindow extends JFrame{
 				String table_2 = "CONST_DATA";
 				String column_2 = "KEY1";
 				DbConnect dbconnect = new DbConnect();
-				//dbconnect.dBInsert(sql_1,table_1,column_1);
-				//dbconnect.dBInsert(sql_2,table_2,column_2);
+				dbconnect.dBInsert(sql_1,table_1,column_1);
+				dbconnect.dBInsert(sql_2,table_2,column_2);
 				try {
 					dbconnect.disconnect();
 				}catch (SQLException e) {

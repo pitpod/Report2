@@ -18,6 +18,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+
+import javafx.scene.control.ComboBox;
+
 import javax.swing.JButton;
 
 //import org.apache.derby.impl.tools.ij.ParseException;
@@ -176,6 +179,7 @@ public class C_DATA extends JFrame {
 				}
 				new DbConnect().updateRow("C_DATA","KEY2",rowValueHashMap);
 				dataRead(tableModel);
+				new MainWindow().comboBoxListCh();
 			}
 		});
 		layout.putConstraint(SpringLayout.NORTH, btnUpdateButton, 6, SpringLayout.SOUTH, sp);
