@@ -5,7 +5,9 @@ import java.awt.Dimension;
 //import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import javax.swing.JFrame;
@@ -21,6 +23,7 @@ import javax.swing.table.TableColumn;
 
 import javafx.scene.control.ComboBox;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 //import org.apache.derby.impl.tools.ij.ParseException;

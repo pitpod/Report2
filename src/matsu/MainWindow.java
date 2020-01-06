@@ -105,13 +105,13 @@ public class MainWindow extends JFrame{
 	private JLabel lblCustomerNo_2;
 	private JLabel lblOwnCompanyNo_1;
 	private JLabel lblOwnCompanyNo_2;
-	private JComboBox<String> comboBox_C_1;
+	public static JComboBox<String> comboBox_C_1;
 	private DefaultComboBoxModel<String> model_C_1;
 	private JComboBox<String> comboBox_F_1;
 	private DefaultComboBoxModel<String> model_F_1;
 	private JComboBox<String> comboBox_Honorific_1;
 	private DefaultComboBoxModel<String> model_H_1;
-	public JComboBox<String> comboBox_C_2;
+	public static JComboBox<String> comboBox_C_2;
 	private DefaultComboBoxModel<String> model_C_2;
 	private JComboBox<String> comboBox_F_2;
 	private DefaultComboBoxModel<String> model_F_2;
@@ -1615,9 +1615,9 @@ public class MainWindow extends JFrame{
 	}
 	public void comboBoxListCh() {
 		comboBoxList();
-		System.out.println(C_Array[0].toString());
 		DefaultComboBoxModel<String> model_C_new = new DefaultComboBoxModel<String>(C_Array);
-		//comboBox_C_2.setModel(model_C_new);
+		comboBox_C_1.setModel(model_C_new);
+		comboBox_C_2.setModel(model_C_new);
 	}
 	private boolean checkBeforeReadfile(File file){
 		if (file.exists()){

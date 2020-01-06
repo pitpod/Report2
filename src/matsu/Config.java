@@ -273,7 +273,7 @@ public class Config extends MainWindow{
 		});
 		//textArea_Constpart.setHorizontalAlignment(JTextArea.RIGHT);
 		layoutTabbedPane4.putConstraint(SpringLayout.NORTH, textArea_Constpart, 20, SpringLayout.NORTH, label_Constpart);
-		layoutTabbedPane4.putConstraint(SpringLayout.SOUTH, textArea_Constpart, 80, SpringLayout.SOUTH, label_Constpart);
+		layoutTabbedPane4.putConstraint(SpringLayout.SOUTH, textArea_Constpart, -20, SpringLayout.SOUTH, tabPane4);
 		layoutTabbedPane4.putConstraint(SpringLayout.WEST, textArea_Constpart, 0, SpringLayout.WEST, label_Constpart);
 		layoutTabbedPane4.putConstraint(SpringLayout.EAST, textArea_Constpart, 0, SpringLayout.EAST, label_Constpart);
 		tabPane4.add(textArea_Constpart);
@@ -298,7 +298,7 @@ public class Config extends MainWindow{
 		});
 		//textArea_Constpart.setHorizontalAlignment(JTextArea.RIGHT);
 		layoutTabbedPane4.putConstraint(SpringLayout.NORTH, textArea_Constname, 20, SpringLayout.NORTH, label_Constname);
-		layoutTabbedPane4.putConstraint(SpringLayout.SOUTH, textArea_Constname, 80, SpringLayout.SOUTH, label_Constname);
+		layoutTabbedPane4.putConstraint(SpringLayout.SOUTH, textArea_Constname, -20, SpringLayout.SOUTH, tabPane4);
 		layoutTabbedPane4.putConstraint(SpringLayout.WEST, textArea_Constname, 0, SpringLayout.WEST, label_Constname);
 		layoutTabbedPane4.putConstraint(SpringLayout.EAST, textArea_Constname, 0, SpringLayout.EAST, label_Constname);
 		tabPane4.add(textArea_Constname);
@@ -307,7 +307,7 @@ public class Config extends MainWindow{
 
 		JButton btnConst = new JButton("設定");
 		layoutTabbedPane4.putConstraint(SpringLayout.NORTH, btnConst, 20, SpringLayout.NORTH, textArea_Constname);
-		layoutTabbedPane4.putConstraint(SpringLayout.SOUTH, btnConst, -20, SpringLayout.SOUTH, textArea_Constname);
+		layoutTabbedPane4.putConstraint(SpringLayout.SOUTH, btnConst, 80, SpringLayout.NORTH, tabPane4);
 		layoutTabbedPane4.putConstraint(SpringLayout.WEST, btnConst, 10, SpringLayout.EAST,  textArea_Constname);
 		layoutTabbedPane4.putConstraint(SpringLayout.EAST, btnConst, 100, SpringLayout.EAST,  textArea_Constname);
 		btnConst.addActionListener(new ActionListener() {
